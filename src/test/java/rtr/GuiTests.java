@@ -30,6 +30,9 @@ final class GuiTests {
 
     @Feature("Google")
     @Story("Search")
+    @Link(name = "websearch/answer/2466433", type = "google-support")
+    @TmsLink("Test-Google-Search-Engine")
+    @Issue("1")
     @Description("This is a little smoke test for the search engine.")
     @Test
     void searchAndExpectResults() {

@@ -32,6 +32,7 @@ final class ApiTests {
 
     @Feature("Exchange Rates")
     @Story("Latest")
+    @Description("Test if we get exchange rates by using the simplest request.")
     @Test
     void requestLatestExchangeRatesWorks() {
         RatesTestData data = new RatesTestData().setDate("latest");
@@ -41,6 +42,7 @@ final class ApiTests {
 
     @Feature("Exchange Rates")
     @Story("Past")
+    @Description("Test if past exchange rates exist.")
     @Test
     void requestPastExchangeRatesWorks() {
         RatesTestData data = new RatesTestData().setDate("2010-01-12");
@@ -50,6 +52,7 @@ final class ApiTests {
 
     @Feature("Exchange Rates")
     @Story("Base")
+    @Description("Test if the exchange rates can be based on a certain currency.")
     @Test
     void requestExchangeRatesWithBaseWorks() {
         RatesTestData data = new RatesTestData().setBase(Currency.getRandomCurrency());
@@ -59,6 +62,7 @@ final class ApiTests {
 
     @Feature("Exchange Rates")
     @Story("Symbols")
+    @Description("Test if the exchange rates can be limited to a certain currency.")
     @Test
     void requestExchangeRatesWithSymbolsWorks() {
         RatesTestData data = new RatesTestData().setSymbols(Currency.getRandomCurrency());
