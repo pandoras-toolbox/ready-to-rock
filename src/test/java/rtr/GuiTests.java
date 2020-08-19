@@ -1,13 +1,13 @@
 package rtr;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.net.UrlChecker;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -30,9 +30,10 @@ final class GuiTests {
 
     @Feature("Google")
     @Story("Search")
+    @Description("This is a little smoke test for the search engine.")
     @Test
     void searchAndExpectResults() {
-        WebDriver driver = WebDriverProvider.INSTANCE.getWebDriver();
+        WebDriver driver = DriverProvider.INSTANCE.getWebDriver();
         Configuration config = Configuration.INSTANCE;
         Duration seleniumTimeout = config.getSeleniumTimeout();
         WebDriverWait wait = new WebDriverWait(driver, seleniumTimeout);

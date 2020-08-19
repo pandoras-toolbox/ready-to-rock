@@ -52,7 +52,7 @@ public final class AllureUtil {
     public static void takeScreenshot(String name, boolean step) {
         Runnable runnable = () -> {
             try {
-                byte[] bytes = Shutterbug.shootPage(WebDriverProvider.INSTANCE.getWebDriver()).getBytes();
+                byte[] bytes = Shutterbug.shootPage(DriverProvider.INSTANCE.getWebDriver()).getBytes();
                 Allure.getLifecycle().addAttachment(name, "image/png", null, bytes);
             } catch (IOException e) {
                 throw new IllegalArgumentException(e);

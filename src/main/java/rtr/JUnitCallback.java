@@ -22,7 +22,7 @@ public class JUnitCallback implements BeforeAllCallback, AfterEachCallback {
             takeScreenshot("Post Mortem Screenshot", false);
         }
         if (guiTest) {
-            WebDriverProvider.INSTANCE.getWebDriver().quit();
+            DriverProvider.INSTANCE.getWebDriver().quit();
         }
     }
 

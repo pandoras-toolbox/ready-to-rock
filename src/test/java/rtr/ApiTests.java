@@ -52,7 +52,7 @@ final class ApiTests {
     @Story("Base")
     @Test
     void requestExchangeRatesWithBaseWorks() {
-        RatesTestData data = new RatesTestData().setBase("CHF");
+        RatesTestData data = new RatesTestData().setBase(Currency.getRandomCurrency());
         Response response = requestExchangeRates(data);
         checkResponse(response, data);
     }
@@ -61,15 +61,15 @@ final class ApiTests {
     @Story("Symbols")
     @Test
     void requestExchangeRatesWithSymbolsWorks() {
-        RatesTestData data = new RatesTestData().setSymbols("CHF");
+        RatesTestData data = new RatesTestData().setSymbols(Currency.getRandomCurrency());
         Response response = requestExchangeRates(data);
         checkResponse(response, data);
     }
 
     @Step
-    private Response requestExchangeRates(RatesTestData rtd) {
+    private Response requestExchangeRates(RatesTestData data) {
         return when()
-            .get(rtd.createPath())
+            .get(data.createPath())
             .then()
             .extract()
             .response();
@@ -90,7 +90,7 @@ final class ApiTests {
         }
         data.getBase().ifPresent(base -> assertThat(jsonPath.getString("base"))
             .as("base")
-            .isEqualTo(base));
+            .isEqualTo(base.name()));
         Map<String, String> rates = jsonPath.getMap("rates", String.class, String.class);
         assertThat(rates.keySet())
             .as("rates")
@@ -100,7 +100,7 @@ final class ApiTests {
             .isNotEmpty());
         data.getSymbols().ifPresent(symbols -> assertThat(rates.keySet())
             .as("symbols")
-            .containsOnly(symbols));
+            .containsOnly(symbols.name()));
     }
 
 }

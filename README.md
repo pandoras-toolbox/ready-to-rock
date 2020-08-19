@@ -7,6 +7,7 @@ This is a test automation example project. The purpose is to:
 * illustrate some newer technologies if they are better than previous ones
 * demonstrate helpful techniques regarding test automation and the tooling for it
 * serve as an initial template for a new test automation tool
+* try out new libraries and approaches
 
 Usually there are only specific examples on the internet, and you wonder if and how that fits together. 
 Not here, at least I hope so.
@@ -21,6 +22,7 @@ This project should work well with Ubuntu 20.04 LTS and likely also with other o
 * parallel test execution
 * capturing log output from dependencies
 * configuration via property files
+* data-driven testing with partly random input test data
 
 ## Supported ways of testing in this example
 
@@ -90,6 +92,15 @@ reusing already defined properties and thus not having to repeat them, like: `fu
 `killall --regexp 'chromedriver|geckodriver'`
 
 ## Troubleshooting
+
+### Selenium tests fail
+
+Probably you need to configure the path to the binary of Chrome and Firefox. Create a private property file with your 
+username as the file name with the suffix `.properties` in the folder `src/main/resources/`.
+
+Then add the properties `selenium.chrome.binary` and `selenium.firefox.binary` with the path to the binaries as values.
+
+### Cannot create Allure report
 
 If showing the Allure report does not work, change allureVersion to 2.9.0 in [build.gradle.kts](build.gradle.kts).
 

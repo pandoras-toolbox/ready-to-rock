@@ -10,11 +10,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 // Input data type for date-driven testing.
 public final class RatesTestData {
 
-    public static String DEFAULT_DATE = "latest";
+    public static final String DEFAULT_DATE = "latest";
 
     private String date = DEFAULT_DATE;
-    private String symbols;
-    private String base;
+    private Currency symbols;
+    private Currency base;
 
     public String getDate() {
         return date;
@@ -25,20 +25,20 @@ public final class RatesTestData {
         return this;
     }
 
-    public Optional<String> getSymbols() {
+    public Optional<Currency> getSymbols() {
         return Optional.ofNullable(symbols);
     }
 
-    public RatesTestData setSymbols(String symbols) {
+    public RatesTestData setSymbols(Currency symbols) {
         this.symbols = symbols;
         return this;
     }
 
-    public Optional<String> getBase() {
+    public Optional<Currency> getBase() {
         return Optional.ofNullable(base);
     }
 
-    public RatesTestData setBase(String base) {
+    public RatesTestData setBase(Currency base) {
         this.base = base;
         return this;
     }
@@ -48,10 +48,10 @@ public final class RatesTestData {
         assertThat(date).as("date").isNotEmpty();
         sb.append(date);
         sb.append("/");
-        Optional<String> baseOpt = getBase();
+        Optional<Currency> baseOpt = getBase();
         baseOpt.ifPresent(base -> {
             sb.append("?base=");
-            sb.append(base);
+            sb.append(base.name());
         });
         getSymbols().ifPresent(symbols -> {
             if (baseOpt.isPresent()) {
@@ -60,7 +60,7 @@ public final class RatesTestData {
                 sb.append("?");
             }
             sb.append("symbols=");
-            sb.append(symbols);
+            sb.append(symbols.name());
         });
         return sb.toString();
     }

@@ -3,13 +3,6 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 val log4jVersion = "2.13.3"
 val allureVersion = "2.13.5"
 
-buildscript {
-	repositories {
-		mavenLocal()
-		jcenter()
-	}
-}
-
 plugins {
 	java
 	eclipse
@@ -49,7 +42,7 @@ dependencies {
 	testImplementation("io.qameta.allure:allure-junit5:${allureVersion}")
 	implementation(platform("org.junit:junit-bom:5.6.2"))
 	implementation("org.junit.jupiter:junit-jupiter")
-	testImplementation("org.assertj:assertj-core:3.16.1")
+	implementation("org.assertj:assertj-core:3.16.1")
 	// In order to add the assertions to the Allure report automatically:
 	testImplementation("io.qameta.allure:allure-assertj:${allureVersion}")
 	testImplementation("org.apache.commons:commons-lang3:3.11")

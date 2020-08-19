@@ -5,7 +5,10 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.apache.commons.lang3.NotImplementedException;
 import org.assertj.core.api.ThrowableAssertAlternative;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.assertj.core.api.Assertions.assertThat;

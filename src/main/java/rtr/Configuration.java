@@ -34,13 +34,24 @@ public enum Configuration {
         return Browser.valueOf(browser);
     }
 
+    public Optional<File> getChromeBinary() {
+        Optional<File> result;
+        String path = config.getString("selenium.chrome.binary");
+        if (StringUtils.isEmpty(path)) {
+            result = Optional.empty();
+        } else {
+            result = Optional.of(new File(path));
+        }
+        return result;
+    }
+
     public Optional<FirefoxBinary> getFirefoxBinary() {
         Optional<FirefoxBinary> result;
         String path = config.getString("selenium.firefox.binary");
         if (StringUtils.isEmpty(path)) {
             result = Optional.empty();
         } else {
-            result = Optional.ofNullable(new FirefoxBinary(new File(path)));
+            result = Optional.of(new FirefoxBinary(new File(path)));
         }
         return result;
     }

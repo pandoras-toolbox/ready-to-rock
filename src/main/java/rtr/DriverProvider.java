@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 // Needs to be thread-safe because of parallel test execution.
-public enum WebDriverProvider {
+public enum DriverProvider {
 
     INSTANCE;
 
@@ -21,6 +21,8 @@ public enum WebDriverProvider {
             switch (browser) {
                 case CHROME -> {
                     WebDriverManager.chromedriver().setup();
+                    ChromeOptions options = new ChromeOptions();
+                    options.setBinary("");
                     webDriver = new ChromeDriver();
                 }
                 case CHROME_HEADLESS -> {
