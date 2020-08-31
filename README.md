@@ -1,6 +1,6 @@
 ## Overview
 
-This is a test automation example project. The purpose is to:
+This is a test automation example project which is in an *early stage*. The purpose is to:
 
 * show how selected open source tools can be chosen to create a useful test automation tool
 * be an example for a programmatic approach to automation
@@ -55,8 +55,8 @@ This is a well-designed test framework which supports nearly everything you need
 **Allure**
 
 Allure is nearly the perfect tool to create a useful test result report. To use BDD Java methods can be annotated with 
-`@Story` and `@Step` for example. The integration with JUnit 5 is great. Compared to frameworks like Cucumber, with Allure 
-the test automation is much more flexible, and the execution much more transparent.
+`@Story` and `@Step` for example. The integration with JUnit 5 is great. Compared to frameworks like Cucumber, with 
+Allure the test automation is much more flexible, and the execution much more transparent.
 
 **Apache Commons Configuration**
 
@@ -68,6 +68,9 @@ reusing already defined properties and thus not having to repeat them, like: `fu
 **Run all tests:**
 
 `./gradlew clean build`
+
+Some tests ***won't*** succeed by design in order to show the categories feature of the Allure report. They can be 
+identified with test names like "triggerProductDefectsCategory".
 
 **Display Allure report:**
 
@@ -85,7 +88,7 @@ reusing already defined properties and thus not having to repeat them, like: `fu
 
 **Update Gradle wrapper:**
 
-`./gradlew wrapper --gradle-version 6.6`
+`./gradlew wrapper --gradle-version 6.6.1`
 
 **Terminate WebDriver zombie processes:**
 

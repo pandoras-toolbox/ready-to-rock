@@ -1,4 +1,4 @@
-package rtr;
+package org.rtr;
 
 import io.qameta.allure.*;
 import org.junit.jupiter.api.Tag;
@@ -20,8 +20,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.openqa.selenium.Keys.ENTER;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfAllElementsLocatedBy;
-import static rtr.AllureUtil.takeScreenshot;
-import static rtr.TestGroup.GUI_TESTS;
+import static org.rtr.AllureUtil.takeScreenshot;
+import static org.rtr.TestGroup.GUI_TESTS;
 
 @Epic("GUI Test Examples")
 @Tag(GUI_TESTS)

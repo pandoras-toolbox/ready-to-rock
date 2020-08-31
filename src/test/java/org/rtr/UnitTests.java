@@ -1,11 +1,9 @@
-package rtr;
+package org.rtr;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.apache.commons.lang3.NotImplementedException;
 import org.assertj.core.api.ThrowableAssertAlternative;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -13,11 +11,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
-import static rtr.TestGroup.UNIT_TESTS;
 
 @Epic("Unit Test Examples")
 @Feature("Calculator")
-@Tag(UNIT_TESTS)
+@Tag(TestGroup.UNIT_TESTS)
 @ExtendWith(JUnitCallback.class)
 final class UnitTests {
 
@@ -44,14 +41,6 @@ final class UnitTests {
         ThrowableAssertAlternative<ArithmeticException> thrownBy = assertThatExceptionOfType(ArithmeticException.class)
             .isThrownBy(() -> CALCULATOR.divide(1, 0));
         thrownBy.withMessage("/ by zero");
-    }
-
-    @Disabled("Not implemented yet")
-    @Story("Square")
-    @Test
-    void square() {
-        // TODO Implement test for the square feature.
-        throw new NotImplementedException();
     }
 
 }

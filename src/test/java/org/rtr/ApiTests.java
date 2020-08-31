@@ -1,4 +1,4 @@
-package rtr;
+package org.rtr;
 
 import io.qameta.allure.*;
 import io.qameta.allure.restassured.AllureRestAssured;
@@ -8,20 +8,21 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.io.FileNotFoundException;
 import java.util.Map;
 
 import static io.restassured.RestAssured.when;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.assertj.core.api.Assertions.assertThat;
-import static rtr.TestGroup.API_TESTS;
 
 @Epic("API Test Examples")
 @Link(name = "Rates API", url = "https://ratesapi.io/documentation/")
-@Tag(API_TESTS)
+@Tag(TestGroup.API_TESTS)
 @ExtendWith(JUnitCallback.class)
 final class ApiTests {
 
@@ -35,6 +36,7 @@ final class ApiTests {
     @Description("Test if we get exchange rates by using the simplest request.")
     @Test
     void requestLatestExchangeRatesWorks() {
+        // FIXME: Make the data-driven testing stronger by using a JUnit test factory for example.
         RatesTestData data = new RatesTestData().setDate("latest");
         Response response = requestExchangeRates(data);
         checkResponse(response, data);
@@ -68,6 +70,41 @@ final class ApiTests {
         RatesTestData data = new RatesTestData().setSymbols(Currency.getRandomCurrency());
         Response response = requestExchangeRates(data);
         checkResponse(response, data);
+    }
+
+
+    @Disabled("Disabled just to trigger the 'Ignored Tests' category")
+    @Story("Other")
+    @Test
+    void triggerIgnoredTestsCategory() {
+    }
+
+    @Feature("Exchange Rates")
+    @Story("Other")
+    @Test
+    void triggerInfrastructureProblemsCategory() {
+        throw new RuntimeException("Infrastructure crashed, bye-bye");
+    }
+
+    @Feature("Exchange Rates")
+    @Story("Other")
+    @Test
+    void triggerOutdatedTestsCategory() {
+        throw new RuntimeException(new FileNotFoundException());
+    }
+
+    @Feature("Exchange Rates")
+    @Story("Other")
+    @Test
+    void triggerProductDefectsCategory() {
+        throw new AssertionError();
+    }
+
+    @Feature("Exchange Rates")
+    @Story("Other")
+    @Test
+    void triggerTestDefectsCategory() {
+        throw new RuntimeException();
     }
 
     @Step

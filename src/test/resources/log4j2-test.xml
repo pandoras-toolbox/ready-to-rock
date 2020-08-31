@@ -16,7 +16,7 @@
         <Logger name="org.aspectj" level="WARN"/>
         <Logger name="org.asynchttpclient" level="WARN"/>
         <Logger name="org.openqa.selenium" level="DEBUG"/>
-        <Logger name="com.example.project" level="TRACE"/>
+        <Logger name="org.rtr" level="TRACE"/>
         <Root level="INFO">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="File"/>

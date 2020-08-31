@@ -55,7 +55,7 @@ dependencies {
 	// Selenium dependencies:
 	implementation("org.seleniumhq.selenium:selenium-java:4.0.0-alpha-6")
 	// Manages the binaries for the WebDriver automatically:
-	implementation("io.github.bonigarcia:webdrivermanager:4.1.0")
+	implementation("io.github.bonigarcia:webdrivermanager:4.2.0")
 	// Utility for screenshots:
 	implementation("com.assertthat:selenium-shutterbug:1.1")
 }

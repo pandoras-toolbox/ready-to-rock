@@ -1,4 +1,4 @@
-package rtr;
+package org.rtr;
 
 import io.qameta.allure.Step;
 

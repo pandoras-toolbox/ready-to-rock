@@ -1,4 +1,4 @@
-package rtr;
+package org.rtr;
 
 import com.assertthat.selenium_shutterbug.core.Shutterbug;
 import io.qameta.allure.Allure;
